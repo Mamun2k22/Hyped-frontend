@@ -11,6 +11,8 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -19,8 +21,30 @@ const Navbar = () => {
     };
   }, [open]);
 
+  useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < 20) {
+      setShowNav(true);
+    } else if (currentScrollY > lastScrollY) {
+      // scrolling down
+      setShowNav(false);
+    } else {
+      // scrolling up
+      setShowNav(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
   return (
-    <header className="fixed left-0 top-0 z-50 w-full">
+    <header className={`fixed left-0 top-0 z-50 w-full transition-transform duration-300 ${
+    showNav ? "translate-y-0" : "-translate-y-full"
+  }`}>
       <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 lg:px-8">
         <a href="/" className="shrink-0">
           <img

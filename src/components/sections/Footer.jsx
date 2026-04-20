@@ -99,15 +99,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* DESKTOP - UNCHANGED */}
+      {/* DESKTOP */}
       <div className="hidden md:block">
-        <div className="relative mx-auto max-w-[1440px] px-6 pt-24">
+        <div className="relative mx-auto max-w-[1440px] px-6 pt-32">
           <div className="relative z-10 flex flex-col items-center text-center">
             <h2 className="text-[clamp(60px,10vw,80px)] font-[900] leading-[0.85] text-[#111111]">
               Let’s Get Hyped!
             </h2>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:info@gethyped.nl"
                 className="flex items-center gap-4 rounded-2xl border border-black/10 bg-[#efe9e0] py-1 pl-6 pr-1"
@@ -153,21 +153,13 @@ export default function Footer() {
           </div>
 
           <div
-            className="absolute bottom-0 right-0 z-0 h-[400px] w-full bg-[#ddd6cb] "
+            className="absolute bottom-0 right-0 z-0 h-[400px] w-full bg-[#ddd6cb]"
             style={{
-              
               clipPath: "polygon(0 82%, 100% 0, 100% 100%, 0 100%)",
             }}
           />
 
-
-
-
-
-
-
-
-          <div className="relative z-10 mt-64 grid grid-cols-1 items-end gap-12 lg:grid-cols-12 pb-4">
+          <div className="relative z-10 mt-52 grid grid-cols-1 items-end gap-12 lg:grid-cols-12 pb-4">
             <div className="lg:col-span-5">
               <img
                 src={logo}
